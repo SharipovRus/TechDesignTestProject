@@ -2,34 +2,31 @@ using UnityEngine;
 
 public class chest_anim : MonoBehaviour
 {
-    private Animator animator;
-    private BoxCollider2D boxCollider;
-    private bool isPlayingAnimation = false;
+    public GameObject coinPrefab; // Префаб монеты
+    public float spawnDelay = 1.0f; // Задержка перед созданием монеты (в секундах)
+
+    Animator animator;
+    const string PRESS_ANIM = "press";
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    private void Update()
+    private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0) && !isPlayingAnimation)
+        animator.SetTrigger(PRESS_ANIM);
+        // Вызываем метод SpawnCoin с задержкой
+        Invoke("SpawnCoin", spawnDelay);
+    }
+
+    private void SpawnCoin()
+    {
+        if (coinPrefab != null)
         {
-            Vector2 clickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(clickPos, Vector2.zero);
-
-            if (hit.collider != null && hit.collider == boxCollider)
-            {
-                animator.Play("YourAnimationName", 0, 0);
-                isPlayingAnimation = true;
-            }
+            // Создаем монету перед сундуком
+            Vector3 spawnPosition = transform.position - new Vector3(0, 0, 1); // Примерно перед сундуком
+            Instantiate(coinPrefab, spawnPosition, Quaternion.identity);
         }
-    }
-
-    // Callback for animation event (attach this to your animation's last keyframe)
-    public void AnimationFinished()
-    {
-        isPlayingAnimation = false;
     }
 }
