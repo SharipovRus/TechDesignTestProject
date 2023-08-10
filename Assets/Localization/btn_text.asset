@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: btn_text
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: 0505889855376c443bfe43b4e00038e0, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 3c16c6d0490745642bc48ddc6553e01b, type: 2}
+  - {fileID: 11400000, guid: 6406a2f57beadaa49bcf335e02f81044, type: 2}
+  - {fileID: 11400000, guid: f5d7e3564a06aed4bbaa944401087720, type: 2}
+  - {fileID: 11400000, guid: e5d0c2461c1b3ed4b87d8191ea83924d, type: 2}
+  - {fileID: 11400000, guid: 3b05e95b471825f4bbcdada7c34ddfc6, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []
